@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/script.js"></script>
+  </head>
+  <body>
+    <center><h1><%= title %></h1></center>
+
+    <% if (posts.length > 0) { %>
+    <h3>Articles</h3>
+        <% posts.forEach(function (post) { %>
+        <button  id="btn"> <a href="/destroy/<%=post._id %>" title="Delete this post"><font color="white">Delete</font></a></button>
+          <p>
+            <h3>Name: </h3><%= post.name %>
+          </p>
+          <p>
+            <h3>Article:</h3> <%= post.article %>
+          </p>
+          
+          <hr>
+        <% }) %>
+    <% } %>
+   <center><form>
+   <p>
+   Name: <input type="text" name="name" placeholder="please type your name here" id="name"></p>
+
+   <p>
+   Post: <input type="text" name="article" placeholder="article a text" id="article">
+
+   </p>
+
+   <button id="submitBtn">Save</button>
+   </form></center>
+
+   <script src="/javascripts/script.js"></script>
+
+  </body>
+</html>
