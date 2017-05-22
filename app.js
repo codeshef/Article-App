@@ -27,6 +27,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var flash=require('connect-flash');
+var session = require('express-session');
+
 // Require mongoose and connecting with MongoDb
 var mongoose=require('mongoose');
 mongoose.connect("mongodb://127.0.0.1:27017/article",function(err)
@@ -38,6 +45,19 @@ mongoose.connect("mongodb://127.0.0.1:27017/article",function(err)
 		console.log('Connected to database');
 		
 	});
+
+
+app.use(session({secret:'shhsecret'}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+//confidDB and passport variables
+
+var configDB = require('./config/database.js');
+mongoose.connect(configDB.url);
+require('./config/passport')(passport);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
