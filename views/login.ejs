@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LogIn</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <style>
+  body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+input {
+  padding: 1em;
+  margin: 1em;
+  font-size: larger;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  background-color: #67cc89;
+  color: white;
+}
+  </style>
+  <body>
+    <center><h1>LogIn</h1></center>
+
+   <center><form action="/login" method="post">
+   <p>
+   <h3>Email : 
+   <input type="text" name="email" placeholder="Type your email here" id="email"></p></h3>
+
+   <p>
+   <h3>Password : 
+   <input type="password" name="password" placeholder="Type your password here" id="password"></h3>
+
+   </p>
+
+   <button id="submit">SignIn</button>
+   <p>
+  <span>Don't have an account?<a href="/signup">Signup</a></span>
+  <p>Or go<a href="/">Home</a></p></p>
+  </form></center>
+  </body>
+</html>
